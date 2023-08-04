@@ -14,16 +14,16 @@ const About = () => {
         />
 
 <p className="mb-6 leading-relaxed text-white-600">
-          Hello, World! 🌎 I graduated with colors from General Assembly that aren't just limited to primary ones. My trusty toolkit? It's filled with the power of the MERN stack, some Python, and a little Django dance.
+          Hello, World! 🌎 I graduated with colors from General Assembly that aren&apos;t just limited to primary ones. My trusty toolkit? It&apos;s filled with the power of the MERN stack, some Python, and a little Django dance.
         </p>
         <p className="mb-6 leading-relaxed text-white-600">
-          I jumped into this code world after a friend lured me into JavaScript's magic. Imagine a kid in a candy store, but replace candy with coding languages, and that's me! 🍭
+          I jumped into this code world after a friend lured me into JavaScript&apos;s magic. Imagine a kid in a candy store, but replace candy with coding languages, and that&apos;s me! 🍭
         </p>
         <p className="mb-6 leading-relaxed text-white-600">
-          On off days, you'll catch me concocting side projects, kind of like a chef's version of a midnight snack! When not Googling error messages, I'm bonding with family, friends, and my rubber duck debugging squad. 🦆
+          On off days, you&apos;ll catch me concocting side projects, kind of like a chef&apos;s version of a midnight snack! When not Googling error messages, I&apos;m bonding with family, friends, and my rubber duck debugging squad. 🦆
         </p>
         <p className="mb-6 leading-relaxed text-white-600">
-          In tech, "Learning never stops" is an understatement. Take a break, and boom, 300 new frameworks. But hey, I'm here for the fun, learning, and the occasional curveball from the coding universe. 💻✨
+          In tech, &quot;Learning never stops&quot; is an understatement. Take a break, and boom, 300 new frameworks. But hey, I&apos;m here for the fun, learning, and the occasional curveball from the coding universe. 💻✨
         </p>
 
         <div className="my-8 border-t border-b border-gray-300 py-6">
@@ -42,7 +42,7 @@ const About = () => {
         </div>
 
         <p className="mt-6 leading-relaxed text-white-600">
-          Beyond the screen, I like traveling and meeting new faces. Ready to chat? So am I! Let's create something awesome together.
+          Beyond the screen, I like traveling and meeting new faces. Ready to chat? So am I! Let&apos;s create something awesome together.
         </p>
       </div>
     </section>
