@@ -15,7 +15,7 @@ export default function RootLayout({ children }: Props) {
   return (
     <div className="font-inter min-h-screen flex flex-col">
       <Head>
-        <title>Your Website Name</title>
+        <title>Ray&apos;s Portfolio</title>
         <meta name="description" content="A description of your website" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         {/* ... any other SEO related tags */}
@@ -23,7 +23,7 @@ export default function RootLayout({ children }: Props) {
 
       <header className="bg-black-600 text-white p-4">
         {/* Navbar goes here */}
-        Navbar
+        
       </header>
 
       <main className="flex-grow container mx-auto px-4">

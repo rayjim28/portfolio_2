@@ -4,19 +4,46 @@ import Projects from '../components/Projects';
 import Contacts from '../components/contacts';
 import Link from 'next/link';
 import Particles from "../components/Particles";
+import { useTheme } from "next-themes";
+import { RiMoonFill, RiSunLine } from "react-icons/ri";
+
 
 const navigation = [
 	{ name: "Projects", href: "#projects" },
 	{ name: "About", href: "#about" },
 ];
 
+
+
+
 export default function Home() {
+  const { systemTheme, theme, setTheme } = useTheme();
+const currentTheme = theme === "system" ? systemTheme : theme;
+
   return (
  <div className="relative bg-gradient-to-tl from-black via-zinc-600/20 to-black min-h-screen max-w-screen-2xl mx-auto">
 
  {/* Particles background */}
  <Particles className="absolute inset-0 -z-10" quantity={2000} />
 
+   {/* The integrated components */}
+   <header className="container mx-auto px-4 py-2 flex justify-between items-center mt-4">
+        <h2 className={`text-2xl font-semibold ${currentTheme === "dark" ? "text-white" : "text-black"}`}>Hello, World! 🌎</h2>
+        <div className="flex space-x-6">
+          <Link href="/" className={`hover:text-gray-600 transition duration-300 ${currentTheme === "dark" ? "text-white" : "text-black"}`}>
+            Home
+          </Link>
+          {currentTheme === "dark" ? (
+            <button onClick={() => setTheme("light")} className="p-2 rounded-xl">
+              <RiSunLine size={25} color="white" />
+            </button>
+          ) : (
+            <button onClick={() => setTheme("dark")} className="p-2 rounded-xl">
+              <RiMoonFill size={25} color="black" />
+            </button>
+          )}
+        </div>
+      </header>
 
       <main className="flex flex-col justify-center items-center h-screen relative z-10">
         <motion.div 
