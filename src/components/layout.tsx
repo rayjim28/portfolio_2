@@ -21,12 +21,12 @@ export default function RootLayout({ children }: Props) {
         {/* ... any other SEO related tags */}
       </Head>
 
-      <header className="bg-black-600 text-white p-4">
-        {/* Navbar goes here */}
+      {/* <header className="bg-black-600 text-white p-4">
         
-      </header>
+        
+      </header> */}
 
-      <main className="flex-grow container mx-auto px-4">
+      <main className="flex-grow">
         {children}
       </main>
 
