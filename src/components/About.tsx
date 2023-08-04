@@ -6,7 +6,7 @@ const About = () => {
     <section className="py-12 px-4 text-center">
       <div className="w-full max-w-2xl mx-auto">
         <Image
-          src="/My_picture.png" // Replace with your image path
+          src="/My_picture.png" 
           alt="Raymond Jimenez"
           width={200}
           height={200}

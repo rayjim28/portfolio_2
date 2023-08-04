@@ -12,11 +12,10 @@ const navigation = [
 
 export default function Home() {
   return (
- // Removed overflow-hidden and added max-w-screen-2xl and mx-auto for centering
  <div className="relative bg-gradient-to-tl from-black via-zinc-600/20 to-black min-h-screen max-w-screen-2xl mx-auto">
 
  {/* Particles background */}
- <Particles className="absolute inset-0 -z-10" quantity={10000} />
+ <Particles className="absolute inset-0 -z-10" quantity={2000} />
 
 
       <main className="flex flex-col justify-center items-center h-screen relative z-10">

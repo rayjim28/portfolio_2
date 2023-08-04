@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from "framer-motion";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -13,7 +13,16 @@ const Projects = () => {
     // ... Add more projects as needed
   ];
 
-  useEffect(() => {
+  
+  const handlePrev = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + projectsData.length) % projectsData.length);
+  };
+
+  const handleNext = useCallback(() => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % projectsData.length);
+}, [projectsData.length]);
+
+useEffect(() => {
     // Change the project every 5 seconds
     const intervalId = setInterval(() => {
       handleNext();
@@ -21,15 +30,8 @@ const Projects = () => {
 
     // Clear the interval when the component unmounts
     return () => clearInterval(intervalId);
-  }, [currentIndex]);
+}, [currentIndex, handleNext]);
 
-  const handlePrev = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + projectsData.length) % projectsData.length);
-  };
-
-  const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % projectsData.length);
-  };
 
   const fadeInOutVariants = {
     hidden: { opacity: 0, x: -100 },
@@ -57,7 +59,7 @@ const Projects = () => {
           animate="visible"
           exit="exit"
           transition={{ duration: 0.5 }}
-          className="relative h-[500px] w-full overflow-hidden rounded shadow-lg border border-gray-300" // Adjusted height for portrait look
+          className="relative h-[500px] w-full overflow-hidden rounded shadow-lg border border-gray-300" // Adjusted height 
         >
             <Image 
               src={projectsData[currentIndex].image} 
