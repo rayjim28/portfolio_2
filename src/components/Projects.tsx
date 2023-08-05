@@ -8,11 +8,22 @@ const Projects = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const projectsData = [
-    { title: "Movie Mania", description: "An immersive movie database experience, Movie Mania is a full-stack web application crafted using the MERN stack. With MongoDB as its backend data store, Express.js and Node.js handling server-side operations, and React bringing the frontend to life, the application is a testament to the power and efficiency of modern web development. Alongside core web technologies like JavaScript and CSS, Bootstrap ensures a responsive and visually appealing user experience. Users can dive deep into a plethora of movie data, sourced from third-party APIs, offering rich information and diverse movie listings. Additionally, the platform integrates a custom-built API, showcasing the versatility and extendibility of the system. Explore, search, and lose yourself in the world of films.", image: "/screenshot-of-movies.png", link: "https://movie-mania-e7tz.onrender.com/" },
-    { title: "Budget Manager", description: "Description for project 2", image: "/screenshot-of-budget.png", link: "https://budget-manager-qdrj.onrender.com/" },
+    {
+      title: "Movie Mania",
+      description: "Movie Mania is a vibrant full-stack MERN application that offers a delightful plunge into the world of cinema. A React-fueled interface, server-side operations handled by Express.js and Node.js, and a MongoDB database blend to create a compelling showcase of modern web development. With Bootstrap delivering style and responsiveness, it integrates third-party APIs for extensive movie data, along with a custom API I developed for JWT authentication. So grab your popcorn and dive in!", 
+      image: "/screenshot-of-movies.png",
+      link: "https://movie-mania-e7tz.onrender.com/"
+    },
+
+    {
+      title: "Budget Manager", 
+      description: "Welcome to Budget Manager, a financial planning app that's as practical as it is fun. Crafted with a keen eye for detail, this application is all about helping you keep tabs on your budget. Harnessing the power of modern tech, it's the accountant you never knew you needed. Make budgeting a breeze today!", 
+      image: "/screenshot-of-budget.png", 
+      link: "https://budget-manager-qdrj.onrender.com/"
+    }
+    
     // ... Add more projects as needed
   ];
-
   
   const handlePrev = () => {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + projectsData.length) % projectsData.length);
@@ -23,10 +34,10 @@ const Projects = () => {
 }, [projectsData.length]);
 
 useEffect(() => {
-    // Change the project every 10 seconds
+    // Change the project every 30 seconds
     const intervalId = setInterval(() => {
       handleNext();
-    }, 10000);
+    }, 30000);
 
     // Clear the interval when the component unmounts
     return () => clearInterval(intervalId);
@@ -68,16 +79,16 @@ useEffect(() => {
                     {/* Buttons to navigate between projects */}
                     <motion.button 
                         onClick={handlePrev} 
-                        className="absolute top-1/2 left-0 z-10 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-r-full"
-                        whileHover={{ scale: 1.1 }}
+                        className="absolute top-1/2 left-0 z-10 transform -translate-y-1/2 bg-yellow-800 text-white p-2 rounded-r-full"
+                        whileHover={{ scale: 1.3 }}
                     >
                         <FontAwesomeIcon icon={faArrowLeft} size="xs" className="sm:text-lg" />
                     </motion.button>
                     
                     <motion.button 
                         onClick={handleNext} 
-                        className="absolute top-1/2 right-0 z-10 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-l-full"
-                        whileHover={{ scale: 1.1 }}
+                        className="absolute top-1/2 right-0 z-10 transform -translate-y-1/2 bg-green-800 text-white p-2 rounded-l-full"
+                        whileHover={{ scale: 1.3 }}
                     >
                         <FontAwesomeIcon icon={faArrowRight} size="xs" className="sm:text-lg" />
                     </motion.button>
