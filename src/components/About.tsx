@@ -24,12 +24,17 @@ const skillVariants = {
   visible: { y: 0, opacity: 1 },
 };
 
-const About = () => {
+type AboutProps = {
+  currentTheme: string;
+};
+
+const About: React.FC<AboutProps> = ({ currentTheme }) => {
   return (
     <section className="py-12 px-4 text-center relative">
       <div className="w-full max-w-2xl mx-auto relative">
         <motion.div
-          className="mx-auto mb-4 overflow-hidden border-4 border-primary shadow-lg transform transition-transform hover:scale-105 rounded-full w-40 h-40 flex justify-center items-center"
+          className={`mx-auto mb-4 overflow-hidden border-4 ${currentTheme === "light" ? "border-black" : "border-primary"
+            } shadow-lg transform transition-transform hover:scale-105 rounded-full w-40 h-40 flex justify-center items-center`}
           initial={{ scale: 0.8 }}
           animate={{ scale: 1 }}
           transition={{
@@ -55,9 +60,9 @@ const About = () => {
           transition={{ delay: 0.3 }}
         >
           <FaGlobe className="inline-block mr-2" /> Hello, World! I graduated
-          with colors from General Assembly that aren&apos;t just limited to
-          primary ones. My toolkit? It&apos;s filled with the power of the MERN
-          stack, some Python, and a little Django dance.
+          with flying colors from General Assembly that aren&apos;t just limited
+          to primary ones. My toolkit? It&apos;s filled with the power of the
+          MERN stack, some Python, and a little Django dance.
         </motion.p>
 
         <motion.p
