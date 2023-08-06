@@ -17,12 +17,13 @@ const navigation = [
 // The main functional component for the Home page
 export default function Home() {
   const { systemTheme, theme, setTheme } = useTheme(); // Using the useTheme hook to get system theme, current theme, and setTheme function
-  const currentTheme = theme === "system" ? systemTheme : theme; // Calculating the current theme, including handling system preferences
+  const currentTheme: string = theme === "system" ? (systemTheme || 'dark') : (theme || 'dark'); // Calculating the current theme, including handling system preferences
 
   useEffect(() => {
     setTheme('dark'); // Always set to dark theme on load
   }, [setTheme]);
 
+  
   // Defining an array of quotes to display on the page
   const quotes = [
     { text: "The only way to do great work is to love what you do.", author: "Steve Jobs" },
