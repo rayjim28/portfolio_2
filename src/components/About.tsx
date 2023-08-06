@@ -1,6 +1,6 @@
-import React from 'react';
+import { useEffect } from 'react';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
 import { FaGlobe, FaCandyCane, FaFeatherAlt, FaMeteor, FaPlaneDeparture } from 'react-icons/fa';
 
 const skillsVariants = {
@@ -20,28 +20,64 @@ const skillVariants = {
 }
 
 const About = () => {
+  const controls = useAnimation();
+
+  useEffect(() => {
+    controls.start({
+      rotate: 360,
+      transition: { duration: 10, repeat: Infinity, ease: 'linear' },
+    });
+  }, [controls]);
+
   return (
-    <section className="py-12 px-4 text-center">
-      <div className="w-full max-w-2xl mx-auto">
+    <section className="py-12 px-4 text-center relative">
+      <div className="w-full max-w-2xl mx-auto relative">
+
+      <motion.div
+          animate={controls}
+          className="absolute w-40 h-40 flex justify-center items-center"
+          style={{ position: 'relative' }}
+        >
+          <div className="rotate-text">
+            {[...Array(12)].map((_, i) => (
+              <motion.span
+                key={i}
+                className="text-white"
+                style={{
+                  position: 'absolute',
+                  top: '50%',
+                  left: '50%',
+                  transform: `translate(-50%, -50%) rotate(${i * 30}deg) translateY(-80px)`,
+                  transformOrigin: 'center',
+                }}
+              >
+                💻
+              </motion.span>
+            ))}
+          </div>
+        </motion.div>
+
         <motion.div
-          className="rounded-full mx-auto mb-4 overflow-hidden"
+          className="mx-auto mb-4 overflow-hidden border-4 border-primary shadow-lg transform transition-transform hover:scale-105 rounded-full w-40 h-40 flex justify-center items-center"
           initial={{ scale: 0.8 }}
-          animate={{ rotate: 360, scale: 1 }}
+          animate={{ scale: 1 }}
           transition={{
-            type: "spring",
+            type: 'spring',
             stiffness: 260,
-            damping: 20
+            damping: 20,
           }}
           whileHover={{ scale: 1.2 }}
         >
           <Image
             src="/My_picture.png"
             alt="Raymond Jimenez"
-            width={200}
-            height={200}
+            width={150}
+            height={150}
+            className="rounded-full"
           />
         </motion.div>
 
+       
         <motion.p
           className="mb-6 leading-relaxed text-white-600"
           initial={{ opacity: 0 }}

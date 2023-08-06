@@ -7,6 +7,38 @@ html {
   scroll-behavior: smooth;
 }
 
+.text-dark-primary {
+  color: #333; /* Dark text color for light theme */
+}
+
+.text-light-primary {
+  color: #fff; /* White text color for dark theme */
+}
+
+/* .rotate-text {
+  width: 200px;
+  height: 200px;
+  animation: rotate 10s linear infinite;
+}
+
+.rotate-text span {
+  position: absolute;
+  transform-origin: 50% 150%;
+  top: 50%;
+  left: 50%;
+  white-space: nowrap;
+}
+
+.text-logo {
+  font-size: 12px; 
+  transform: translateX(-50%);
+}
+
+@keyframes rotate {
+  0% { transform: translateX(-50%) rotate(0deg); }
+  100% { transform: translateX(-50%) rotate(360deg); }
+} */
+
 /* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;

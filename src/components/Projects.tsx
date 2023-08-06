@@ -22,7 +22,6 @@ const Projects = () => {
       link: "https://budget-manager-qdrj.onrender.com/"
     }
     
-    // ... Add more projects as needed
   ];
   
   const handlePrev = () => {
