@@ -1,11 +1,17 @@
-import React from 'react';
+import { FunctionComponent } from 'react';
 import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 
+interface ContactsProps {
+  theme: string;
+}
 
-const Contacts = () => {
+const Contacts: FunctionComponent<ContactsProps> = ({ theme }) => { // Accept theme as a prop
+  // Choose icon color based on theme
+  const iconColor = theme === 'light' ? 'text-black' : 'text-white'; // Change 'text-black' to 'text-white' if you want the icons to be white in light theme
+
   // Animation variants for Framer Motion
   const iconVariants = {
     hover: { scale: 1.2, rotate: 90 },
@@ -19,7 +25,7 @@ const Contacts = () => {
                 variants={iconVariants}
                 whileHover="hover"
                 whileTap="tap">
-        <FontAwesomeIcon icon={faGithub} className="text-white text-3xl" />
+        <FontAwesomeIcon icon={faGithub} className={`${iconColor} text-3xl`} /> {/* Use dynamic icon color */}
       </motion.a>
 
       <motion.a href="https://www.linkedin.com/in/raymondjimenez/" 
@@ -27,7 +33,7 @@ const Contacts = () => {
                 variants={iconVariants}
                 whileHover="hover"
                 whileTap="tap">
-        <FontAwesomeIcon icon={faLinkedin} className="text-white text-3xl" />
+        <FontAwesomeIcon icon={faLinkedin} className={`${iconColor} text-3xl`} /> {/* Use dynamic icon color */}
       </motion.a>
 
       <motion.a href="mailto:rayjim1986@gmail.com" 
@@ -35,7 +41,7 @@ const Contacts = () => {
                 variants={iconVariants}
                 whileHover="hover"
                 whileTap="tap">
-        <FontAwesomeIcon icon={faEnvelope} className="text-white text-3xl" />
+        <FontAwesomeIcon icon={faEnvelope} className={`${iconColor} text-3xl`} /> {/* Use dynamic icon color */}
       </motion.a>
     </div>
   );
