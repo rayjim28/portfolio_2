@@ -2,9 +2,9 @@ import Image from "next/image";
 import { motion, useAnimation } from "framer-motion";
 import {
   FaGlobe,
-  FaCandyCane,
-  FaFeatherAlt,
-  FaMeteor,
+  FaCode,
+  FaLaptopCode,
+  FaBookOpen,
   FaPlaneDeparture,
 } from "react-icons/fa";
 
@@ -59,48 +59,20 @@ const About: React.FC<AboutProps> = ({ currentTheme }) => {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
         >
-          <FaGlobe className="inline-block mr-2" /> Hello, World! I graduated
-          with flying colors from General Assembly that aren&apos;t just limited
-          to primary ones. My toolkit? It&apos;s filled with the power of the
-          MERN stack, some Python, and a little Django dance.
+          <FaGlobe className="inline-block mr-2" /> Hello, World! I graduated from General Assembly, where I honed my skills in a diverse array of technologies. My toolkit encompasses the robust MERN stack, Python, and the Django framework.
         </motion.p>
 
-        <motion.p
-          className="mb-6 leading-relaxed text-white-600"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.6 }}
-        >
-          <FaCandyCane className="inline-block mr-2" /> I jumped into this code
-          world after a friend lured me into JavaScript&apos;s magic. Imagine a
-          kid in a candy store, but replace candy with coding languages, and
-          that&apos;s me!
+        <motion.p className="mb-6 leading-relaxed text-white-600" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }}>
+        <FaCode className="inline-block mr-2" /> My passion for coding was ignited through the captivating world of JavaScript. Every new project is an opportunity for growth, innovation, and achieving excellence.
         </motion.p>
 
-        <motion.p
-          className="mb-6 leading-relaxed text-white-600"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.9 }}
-        >
-          <FaFeatherAlt className="inline-block mr-2" /> On off days,
-          you&apos;ll catch me concocting side projects, kind of like a
-          chef&apos;s version of a midnight snack! When not Googling error
-          messages, I&apos;m bonding with family, friends, and my rubber duck
-          debugging squad.
+        <motion.p className="mb-6 leading-relaxed text-white-600" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.9 }}>
+        <FaLaptopCode className="inline-block mr-2" /> Off-screen, I engage in side projects that allow me to explore new technologies and methodologies. When not coding, I value spending quality time with family and friends and investing in personal development.
+        </motion.p>
+        <motion.p className="mb-6 leading-relaxed text-white-600" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2 }}>
+        <FaBookOpen className="inline-block mr-2" /> The technology landscape is ever-changing, and I am committed to continuous learning. Staying up-to-date with the latest trends and frameworks is not just a necessity but a dedication to my craft.
         </motion.p>
 
-        <motion.p
-          className="mb-6 leading-relaxed text-white-600"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2 }}
-        >
-          <FaMeteor className="inline-block mr-2" /> In tech, &quot;Learning
-          never stops&quot; is an understatement. Take a break, and boom, 300
-          new frameworks. But hey, I&apos;m here for the fun, learning, and the
-          occasional curveball from the coding universe.
-        </motion.p>
 
         <div className="my-8 border-t border-b border-gray-300 py-6">
           <h3 className="text-3xl mb-4 font-semibold text-white-700">
@@ -142,15 +114,8 @@ const About: React.FC<AboutProps> = ({ currentTheme }) => {
           </motion.ul>
         </div>
 
-        <motion.p
-          className="mt-6 leading-relaxed text-white-600"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5 }}
-        >
-          <FaPlaneDeparture className="inline-block mr-2" /> Beyond the screen,
-          I like traveling and meeting new faces. Ready to chat? So am I!
-          Let&apos;s create something awesome together.
+        <motion.p className="mt-6 leading-relaxed text-white-600" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.5 }}>
+          <FaPlaneDeparture className="inline-block mr-2" /> Beyond the world of code, I have a zest for traveling and connecting with new people. I&apos;m always open to discussing new opportunities and collaborating on exciting projects. Let&apos;s build something remarkable together.
         </motion.p>
       </div>
     </section>

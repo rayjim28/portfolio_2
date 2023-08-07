@@ -98,12 +98,14 @@ export default function Home() {
             {isHoveringTitle && <CustomCursor />}
           </motion.h1>
           {/* Quote section */}
-          <motion.h2
-            className={`text-lg md:text-xl lg:text-2xl text-center mt-16 ${!currentTheme || currentTheme === "dark" ? "text-white" : "text-black"}`}
-            whileHover={{ scale: 1.1 }}
-          >
-            {quotes[currentQuoteIndex].text} <br /> {quotes[currentQuoteIndex].author}
-          </motion.h2>
+          <div className="quote-container">
+            <motion.h2
+              className={`text-lg md:text-xl lg:text-2xl text-center mt-16 ${!currentTheme || currentTheme === "dark" ? "text-white" : "text-black"}`}
+              whileHover={{ scale: 1.1 }}
+            >
+              {quotes[currentQuoteIndex].text} <br /> {quotes[currentQuoteIndex].author}
+            </motion.h2>
+          </div>
         </motion.div>
       </main>
       {/* Projects component section */}

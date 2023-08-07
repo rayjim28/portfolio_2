@@ -15,3 +15,6 @@ html {
   color: #fff; /* White text color for dark theme */
 }
 
+.quote-container {
+  height: 150px; 
+}
