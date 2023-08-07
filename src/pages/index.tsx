@@ -48,7 +48,14 @@ export default function Home() {
 
   // Main render method
   return (
-    <div className={`relative ${currentTheme === 'light' ? 'bg-light-background' : 'bg-gradient-to-tl from-black via-zinc-600/20 to-black'} min-h-screen w-full`}>
+
+    <motion.div
+      className={`relative flex flex-col min-h-screen justify-between ${currentTheme === 'light' ? 'bg-light-background' : 'bg-dark-background'} w-full`}
+      initial={{ opacity: 0, scale: 0.9, y: 0 }}
+      animate={{ opacity: 1, scale: 1, y: 0 }}
+      transition={{ duration: 1, ease: "easeOut" }}
+    >
+
       {/* Particle background component */}
       <Particles className="absolute inset-0 -z-10" quantity={3000} theme={currentTheme || 'dark'} />
       {/* Header section */}
@@ -120,6 +127,6 @@ export default function Home() {
       <div id="contacts" className="relative z-10">
         <Contacts theme={currentTheme} />
       </div>
-    </div>
+    </motion.div>
   );
 }

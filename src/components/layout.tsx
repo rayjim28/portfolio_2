@@ -13,7 +13,7 @@ function getCurrentYear() {
 
 export default function RootLayout({ children }: Props) {
   return (
-    <div className="font-inter min-h-screen flex flex-col">
+    <div className="font-inter min-h-screen flex flex-col justify-between">
       <Head>
         <title>Ray&apos;s Portfolio</title>
         <meta name="description" content="A description of your website" />
