@@ -7,6 +7,7 @@ import Link from 'next/link'; // Importing Next.js Link component for client-sid
 import Particles from "../components/Particles"; // Importing a custom Particle component for the background
 import { useTheme } from "next-themes"; // Importing a hook to handle the website's themes
 import { RiMoonFill, RiSunLine } from "react-icons/ri"; // Importing icons to be used for the theme toggle button
+import CustomCursor from "../components/CustomCursor"; // Importing a custom cursor component
 
 // Defining the navigation items with their names and links
 const navigation = [
@@ -16,6 +17,7 @@ const navigation = [
 
 // The main functional component for the Home page
 export default function Home() {
+  const [isHoveringTitle, setIsHoveringTitle] = useState(false); // State for tracking whether the user is hovering over the title
   const { systemTheme, theme, setTheme } = useTheme(); // Using the useTheme hook to get system theme, current theme, and setTheme function
   const currentTheme: string = theme === "system" ? (systemTheme || 'dark') : (theme || 'dark'); // Calculating the current theme, including handling system preferences
 
@@ -87,10 +89,13 @@ export default function Home() {
           </motion.nav>
           {/* Main title */}
           <motion.h1
+            onMouseEnter={() => setIsHoveringTitle(true)}
+            onMouseLeave={() => setIsHoveringTitle(false)}
             className={`z-10 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-transparent duration-1000 cursor-default text-edge-outline animate-title font-display whitespace-normal ${currentTheme === 'light' ? 'bg-black' : 'bg-white'} bg-clip-text`}
             whileHover={{ scale: 1.1 }}
           >
             Hi, my name is Raymond Jimenez,<br />& I&apos;m a Software Engineer👨🏻‍💻
+            {isHoveringTitle && <CustomCursor />}
           </motion.h1>
           {/* Quote section */}
           <motion.h2

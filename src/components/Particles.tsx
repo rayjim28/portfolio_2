@@ -15,8 +15,8 @@ export default function Particles({
 	staticity = 50,
 	ease = 50,
 	refresh = false,
-	theme = "dark",	
-}: ParticlesProps & { theme: string}) {
+	theme = "dark",
+}: ParticlesProps & { theme: string }) {
 	const canvasRef = useRef<HTMLCanvasElement>(null);
 	const canvasContainerRef = useRef<HTMLDivElement>(null);
 	const context = useRef<CanvasRenderingContext2D | null>(null);
@@ -94,8 +94,8 @@ export default function Particles({
 			context.current.translate(translateX, translateY);
 			context.current.beginPath();
 			context.current.arc(x, y, size, 0, 2 * Math.PI);
-            // Use the theme to decide the color
-            const color = theme === "dark" ? "255, 255, 255" : "0, 0, 0";
+			// Use the theme to decide the color
+			const color = theme === "dark" ? "255, 255, 255" : "0, 0, 0";
 			context.current.fillStyle = `rgba(${color}, ${alpha})`;
 			context.current.fill();
 			context.current.setTransform(dpr, 0, 0, dpr, 0, 0);
@@ -180,7 +180,7 @@ export default function Particles({
 		window.requestAnimationFrame(animate);
 	}, [clearContext, drawCircle, circleParams, staticity, ease]);
 
-	
+
 	useEffect(() => {
 		if (canvasRef.current) {
 			context.current = canvasRef.current.getContext("2d");
