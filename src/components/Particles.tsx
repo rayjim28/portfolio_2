@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState, useCallback } from "react";
 import { useMousePosition } from "../util/mouse";
 
+// Define interface for the props
 interface ParticlesProps {
 	className?: string;
 	quantity?: number;
@@ -17,15 +18,27 @@ export default function Particles({
 	refresh = false,
 	theme = "dark",
 }: ParticlesProps & { theme: string }) {
+	// Canvas and context references
 	const canvasRef = useRef<HTMLCanvasElement>(null);
 	const canvasContainerRef = useRef<HTMLDivElement>(null);
 	const context = useRef<CanvasRenderingContext2D | null>(null);
+
+	// Array to store circle objects
 	const circles = useRef<any[]>([]);
+
+	// Retrieve mouse position
 	const mousePosition = useMousePosition();
+
+	// Reference to store mouse coordinates
 	const mouse = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
+
+	// Reference to store canvas size
 	const canvasSize = useRef<{ w: number; h: number }>({ w: 0, h: 0 });
+
+	// Device pixel ratio
 	const dpr = typeof window !== "undefined" ? window.devicePixelRatio : 1;
 
+	// Define a type for Circle
 	type Circle = {
 		x: number;
 		y: number;
@@ -39,6 +52,7 @@ export default function Particles({
 		magnetism: number;
 	};
 
+	// Clear the drawing context
 	const clearContext = useCallback(() => {
 		if (context.current) {
 			context.current.clearRect(
@@ -50,6 +64,7 @@ export default function Particles({
 		}
 	}, []);
 
+	// Resize the canvas
 	const resizeCanvas = useCallback(() => {
 		if (canvasContainerRef.current && canvasRef.current && context.current) {
 			circles.current.length = 0;
@@ -63,7 +78,9 @@ export default function Particles({
 		}
 	}, [dpr]);
 
+	// Generate parameters for a circle
 	const circleParams = useCallback((): Circle => {
+		// Generate random parameters for a circle
 		const x = Math.floor(Math.random() * canvasSize.current.w);
 		const y = Math.floor(Math.random() * canvasSize.current.h);
 		const translateX = 0;
@@ -88,8 +105,10 @@ export default function Particles({
 		};
 	}, []);
 
+	// Draw a circle on the canvas
 	const drawCircle = useCallback((circle: Circle, update = false) => {
 		if (context.current) {
+			// Draw the circle
 			const { x, y, translateX, translateY, size, alpha } = circle;
 			context.current.translate(translateX, translateY);
 			context.current.beginPath();
@@ -106,6 +125,7 @@ export default function Particles({
 		}
 	}, [dpr, theme]);
 
+	// Draw particles on the canvas
 	const drawParticles = useCallback(() => {
 		clearContext();
 		const particleCount = quantity;
@@ -115,13 +135,16 @@ export default function Particles({
 		}
 	}, [quantity, clearContext, drawCircle, circleParams]);
 
+	// Initialize the canvas
 	const initCanvas = useCallback(() => {
 		resizeCanvas();
 		drawParticles();
 	}, [drawParticles, resizeCanvas]);
 
+	// Animate the circles
 	const animate = useCallback(() => {
 		clearContext();
+		// Animation logic
 		circles.current.forEach((circle: Circle, i: number) => {
 			// Handle the alpha value
 			const edge = [
@@ -180,7 +203,7 @@ export default function Particles({
 		window.requestAnimationFrame(animate);
 	}, [clearContext, drawCircle, circleParams, staticity, ease]);
 
-
+	// Set up the canvas and context
 	useEffect(() => {
 		if (canvasRef.current) {
 			context.current = canvasRef.current.getContext("2d");
@@ -194,6 +217,7 @@ export default function Particles({
 		};
 	}, [initCanvas, animate]);
 
+	// Handle mouse movement
 	const onMouseMove = useCallback(() => {
 		if (canvasRef.current) {
 			const rect = canvasRef.current.getBoundingClientRect();
@@ -208,16 +232,17 @@ export default function Particles({
 		}
 	}, [mousePosition.x, mousePosition.y]);
 
-
+	// Update mouse position when it changes
 	useEffect(() => {
 		onMouseMove();
 	}, [mousePosition.x, mousePosition.y, onMouseMove]);
 
+	// Refresh the canvas when the `refresh` prop changes
 	useEffect(() => {
 		initCanvas();
 	}, [refresh, initCanvas]);
 
-
+	// Remap a value to a different range
 	const remapValue = (
 		value: number,
 		start1: number,
@@ -230,7 +255,7 @@ export default function Particles({
 		return remapped > 0 ? remapped : 0;
 	};
 
-
+	// Render the canvas
 	return (
 		<div className={className} ref={canvasContainerRef} aria-hidden="true">
 			<canvas ref={canvasRef} />
