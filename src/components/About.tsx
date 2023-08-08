@@ -34,7 +34,8 @@ const About: React.FC<AboutProps> = ({ currentTheme }) => {
       <div className="w-full max-w-2xl mx-auto relative">
         <motion.div
           className={`mx-auto mb-4 overflow-hidden border-4 ${currentTheme === "light" ? "border-black" : "border-primary"
-            } shadow-lg transform transition-transform hover:scale-105 rounded-full w-40 h-40 flex justify-center items-center`}
+            } shadow-lg transform transition-transform hover:scale-105 flex justify-center items-center`}
+          style={{ width: '130px', height: '180px' }}
           initial={{ scale: 0.8 }}
           animate={{ scale: 1 }}
           transition={{
@@ -45,11 +46,10 @@ const About: React.FC<AboutProps> = ({ currentTheme }) => {
           whileHover={{ scale: 1.2 }}
         >
           <Image
-            src="/My_picture.png"
+            src="/my_picture.png"
             alt="Raymond Jimenez"
-            width={150}
+            width={130}
             height={150}
-            className="rounded-full"
           />
         </motion.div>
 
@@ -63,14 +63,14 @@ const About: React.FC<AboutProps> = ({ currentTheme }) => {
         </motion.p>
 
         <motion.p className="mb-6 leading-relaxed text-white-600" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }}>
-        <FaCode className="inline-block mr-2" /> My passion for coding was ignited through the captivating world of JavaScript. Every new project is an opportunity for growth, innovation, and achieving excellence.
+          <FaCode className="inline-block mr-2" /> My passion for coding was ignited through the captivating world of JavaScript. Every new project is an opportunity for growth, innovation, and achieving excellence.
         </motion.p>
 
         <motion.p className="mb-6 leading-relaxed text-white-600" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.9 }}>
-        <FaLaptopCode className="inline-block mr-2" /> Off-screen, I engage in side projects that allow me to explore new technologies and methodologies. When not coding, I value spending quality time with family and friends and investing in personal development.
+          <FaLaptopCode className="inline-block mr-2" /> Off-screen, I engage in side projects that allow me to explore new technologies and methodologies. When not coding, I value spending quality time with family and friends and investing in personal development.
         </motion.p>
         <motion.p className="mb-6 leading-relaxed text-white-600" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2 }}>
-        <FaBookOpen className="inline-block mr-2" /> The technology landscape is ever-changing, and I am committed to continuous learning. Staying up-to-date with the latest trends and frameworks is not just a necessity but a dedication to my craft.
+          <FaBookOpen className="inline-block mr-2" /> The technology landscape is ever-changing, and I am committed to continuous learning. Staying up-to-date with the latest trends and frameworks is not just a necessity but a dedication to my craft.
         </motion.p>
 
 
