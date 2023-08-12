@@ -9,6 +9,7 @@ import { useTheme } from "next-themes"; // Importing a hook to handle the websit
 import { RiMoonFill, RiSunLine } from "react-icons/ri"; // Importing icons to be used for the theme toggle button
 import CustomCursor from "../components/CustomCursor"; // Importing a custom cursor component
 
+
 // Defining the navigation items with their names and links
 const navigation = [
   { name: "Projects", href: "#projects" },
@@ -25,6 +26,9 @@ export default function Home() {
     setTheme('dark'); // Always set to dark theme on load
   }, [setTheme]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+}, []);
 
   // Defining an array of quotes to display on the page
   const quotes = [
@@ -48,7 +52,6 @@ export default function Home() {
 
   // Main render method
   return (
-
     <motion.div
       className={`relative flex flex-col min-h-screen justify-between ${currentTheme === 'light' ? 'bg-light-background' : 'bg-dark-background'} w-full`}
       initial={{ opacity: 0, scale: 0.9, y: 0 }}
@@ -120,7 +123,7 @@ export default function Home() {
         <Projects />
       </div>
       {/* About component section */}
-      <div id="about" className="relative z-10 mt-16">
+      <div id="about" className="relative z-10 mt-36">
         <About currentTheme={currentTheme} />
       </div>
       {/* Contacts component section */}

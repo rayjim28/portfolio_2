@@ -255,7 +255,7 @@ export default function Particles({
 		return remapped > 0 ? remapped : 0;
 	};
 
-	// Render the canvas
+
 	return (
 		<div className={className} ref={canvasContainerRef} aria-hidden="true">
 			<canvas ref={canvasRef} />

@@ -8,13 +8,28 @@ html {
 }
 
 .text-dark-primary {
-  color: #333; /* Dark text color for light theme */
+  color: #333; 
 }
 
 .text-light-primary {
-  color: #fff; /* White text color for dark theme */
+  color: #fff; 
 }
 
 .quote-container {
   height: 150px; 
+}
+
+
+.canvasContainer {
+  flex-grow: 1;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.flex-grow {
+  flex: 1;
 }

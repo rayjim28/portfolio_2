@@ -29,7 +29,7 @@ const Modal: React.FC<ModalProps> = ({ onClose, children }) => {
 
     return (
         // Outer div for the modal overlay with flex centering and semi-transparent background
-        <div className="absolute inset-0 z-[1000] overflow-auto bg-black bg-opacity-40 flex items-center justify-center">
+        <div className="fixed inset-0 z-[1000] overflow-auto bg-black bg-opacity-40 flex items-center justify-center">
             {/* Animated modal container with conditional styling based on the theme */}
             <motion.div
                 className={`relative p-8 w-full max-w-lg rounded-lg shadow-2xl flex flex-col space-y-4 transition-all font-sans text-lg ${isDark ? "bg-gray-800 text-white" : "bg-gray-300 text-black"}`}
@@ -57,7 +57,7 @@ const Modal: React.FC<ModalProps> = ({ onClose, children }) => {
                     <span className="text-xs"></span> {/* Empty span for optional text */}
                 </button>
                 {/* Main content area of the modal, flex centering and scrollable */}
-                <div className="flex flex-col items-center space-y-4 overflow-y-auto max-h-[400px]">
+                <div className="flex flex-col items-center space-y-4 overflow-y-auto max-h-[calc(100vh-10rem)] sm:max-h-[400px]">
                     {children} {/* Renders the children passed to the Modal component */}
                 </div>
             </motion.div>

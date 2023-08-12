@@ -1,7 +1,6 @@
 // pages/_app.js
 import RootLayout from '../components/layout';
 import { ThemeProvider } from 'next-themes';
-// import Navbar from '../components/Navbar';
 import CustomCursor from '../components/CustomCursor';
 
 function MyApp({ Component, pageProps }) {
