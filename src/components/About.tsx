@@ -46,7 +46,7 @@ const About: React.FC<AboutProps> = ({ currentTheme }) => {
           whileHover={{ scale: 1.2 }}
         >
           <Image
-            src="/my_picture.png"
+            src="/My_Picture.png"
             alt="Raymond Jimenez"
             width={130}
             height={150}
