@@ -16,7 +16,7 @@ const Projects = () => {
       "title": "Portfolio",
       "description": "Welcome to my portfolio, a comprehensive showcase of my journey in the tech world. Here, you'll find a collection of projects that I've worked on, reflecting my passion for coding, creativity, and problem-solving. Dive into the details to explore my skills in various technologies and methodologies. Whether it's front-end, back-end, or full-stack development, I invite you to explore the pieces that make up my professional identity.",
       "image": "/screenshot-of-my-portfolio.png",
-      "link": "https://portfolio-2-khaki.vercel.app/",
+      "link": "https://raymond-jimenez.com/",
       "theme": "dark"
     },
     // Second project details
