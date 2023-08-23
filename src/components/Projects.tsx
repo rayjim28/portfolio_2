@@ -23,7 +23,7 @@ const Projects = () => {
     {
       title: "Movie Mania",
       description: "Movie Mania is a vibrant full-stack MERN application that offers a delightful plunge into the world of cinema. A React-fueled interface, server-side operations handled by Express.js and Node.js, and a MongoDB database blend to create a compelling showcase of modern web development. With Bootstrap delivering style and responsiveness, it integrates third-party APIs for extensive movie data, along with a custom API I developed for JWT authentication. So grab your popcorn and dive in!",
-      image: "/screenshot-of-movies.png",
+      image: "/screenshot-of-movie-mania.png",
       link: "https://movie-mania-e7tz.onrender.com/",
       theme: "light",
     },
