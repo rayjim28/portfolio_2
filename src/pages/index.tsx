@@ -64,10 +64,10 @@ export default function Home() {
       {/* Header section */}
       <header className={`container mx-auto px-4 py-2 flex flex-wrap justify-between items-center mt-4 ${currentTheme === 'light' ? 'text-dark-primary' : 'text-light-primary'}`}>
         {/* Main title for the header */}
-        <h2 className={`text-xl sm:text-2xl font-semibold ${!currentTheme || currentTheme === "dark" ? "text-white" : "text-black"}`}>Hello, World! 🌎</h2>
+        <h2 className={`text-xl sm:text-3xl font-semibold ${!currentTheme || currentTheme === "dark" ? "text-white" : "text-black"}`}>Hello, World! 🌎</h2>
         <div className="flex items-center space-x-6 mt-2 sm:mt-0">
           {/* Home link */}
-          <Link href="/" className={`hover:text-gray-600 transition duration-300 ${!currentTheme || currentTheme === "dark" ? "text-white" : "text-black"}`}>
+          <Link href="/" className={`hover:text-yellow-500 transition text-xl duration-300 ${!currentTheme || currentTheme === "dark" ? "text-white" : "text-black"}`}>
             Home
           </Link>
           {/* Theme toggle button */}
@@ -89,10 +89,10 @@ export default function Home() {
         <motion.div className="flex flex-col items-center justify-center w-11/12 sm:w-full h-4/5" initial={{ opacity: 0, y: -50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.2 }}>
           {/* Navigation section */}
           <motion.nav className="my-4 sm:my-8">
-            <ul className="flex items-center justify-center gap-4">
+            <ul className="flex items-center justify-center gap-40 text-xl">
               {navigation.map((item) => (
                 <motion.div key={item.href} whileHover={{ scale: 1.2 }}>
-                  <Link href={item.href} className={`text-lg duration-500 underline hover:text-yellow-500 ${!currentTheme || currentTheme === "dark" ? "text-white" : "text-black"}`}>{item.name}</Link>
+                  <Link href={item.href} className={`text-xl duration-500 border-b-2 pb-1 border-current hover:text-yellow-500 ${!currentTheme || currentTheme === "dark" ? "text-white" : "text-black"}`}>{item.name}</Link>
                 </motion.div>
               ))}
             </ul>
@@ -101,7 +101,7 @@ export default function Home() {
           <motion.h1
             onMouseEnter={() => setIsHoveringTitle(true)}
             onMouseLeave={() => setIsHoveringTitle(false)}
-            className={`z-10 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-transparent duration-1000 cursor-default text-edge-outline animate-title font-display whitespace-normal ${currentTheme === 'light' ? 'bg-black' : 'bg-white'} bg-clip-text`}
+            className={`z-10 mt-24 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-transparent duration-1000 cursor-default text-edge-outline animate-title font-display whitespace-normal ${currentTheme === 'light' ? 'bg-black' : 'bg-white'} bg-clip-text`}
             whileHover={{ scale: 1.1 }}
           >
             Hi, my name is Raymond Jimenez,<br />& I&apos;m a Software Engineer👨🏻‍💻
@@ -110,7 +110,7 @@ export default function Home() {
           {/* Quote section */}
           <div className="quote-container">
             <motion.h2
-              className={`text-lg md:text-xl lg:text-2xl text-center mt-16 ${!currentTheme || currentTheme === "dark" ? "text-white" : "text-black"}`}
+              className={`text-xl md:text-xl lg:text-3xl text-center mt-24 ${!currentTheme || currentTheme === "dark" ? "text-white" : "text-black"}`}
               whileHover={{ scale: 1.1 }}
             >
               {quotes[currentQuoteIndex].text} <br /> {quotes[currentQuoteIndex].author}
