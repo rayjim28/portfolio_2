@@ -88,6 +88,9 @@ const About: React.FC<AboutProps> = ({ currentTheme }) => {
               JavaScript (ES6+)
             </motion.li>
             <motion.li variants={skillVariants} whileHover={{ scale: 1.2 }}>
+              SQL
+            </motion.li>
+            <motion.li variants={skillVariants} whileHover={{ scale: 1.2 }}>
               React &amp; Next.js
             </motion.li>
             <motion.li variants={skillVariants} whileHover={{ scale: 1.2 }}>
