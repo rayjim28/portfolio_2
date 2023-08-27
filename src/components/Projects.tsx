@@ -1,13 +1,14 @@
 import React, { useState, useRef } from 'react';
 import Image from 'next/image';
 import Modal from './Modal'; // Import your Modal component
-import { motion } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
 
 const Projects = () => {
   const [showModal, setShowModal] = useState(false);
   const [currentProject, setCurrentProject] = useState<ProjectType | null>(null);
   const projectsRef = useRef<HTMLElement | null>(null);
 
+  const controls = useAnimation();
 
   // An array containing the project data
   const projectsData: ProjectType[] = [
@@ -73,7 +74,7 @@ const Projects = () => {
 
   return (
     <section ref={projectsRef} id="projects" className="relative py-6 sm:py-12 px-4 text-center">
-      <h1 className="text-2xl sm:text-4xl mb-4">Projects</h1>
+      <h1 className="text-2xl sm:text-4xl mb-5">Projects</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
         {projectsData.map((project) => (
           <motion.div
@@ -112,7 +113,6 @@ const Projects = () => {
       )}
     </section>
   );
-
 };
 
 export default Projects;
