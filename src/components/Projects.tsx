@@ -75,6 +75,7 @@ const Projects = ({ currentTheme }: ProjectsProps) => {
       scale: 1,
       boxShadow: "0px 0px 5px rgba(0,0,0,0.1)",
       backgroundColor: isDark ? "#333" : "#eee",
+      border: "1px solid black"
     },
     hover: {
       scale: 1.05,
@@ -87,19 +88,20 @@ const Projects = ({ currentTheme }: ProjectsProps) => {
     hidden: { opacity: 0, y: 100 },
     visible: { opacity: 1, y: 0 },
   };
+  
 
   return (
     <section
       ref={projectsRef}
       id="projects"
-      className="relative py-6 sm:py-12 px-4 text-center mt-12"
+      className="relative py-6 sm:py-12 px-4 text-center mt-1.5"
     >
       <h1 className="text-2xl sm:text-4xl mb-5">Projects</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
         {projectsData.map((project) => (
           <motion.div
             key={project.title}
-            className="rounded-lg shadow-md border-2 bg-[gray] p-4 transition-all cursor-pointer"
+            className="rounded-lg shadow-md border-2 bg-[color] p-4 transition-all cursor-pointer"
             onClick={() => handleShowModal(project)}
             variants={cardVariants}
             initial="initial"

@@ -10,7 +10,7 @@ type ContactsProps = {
 
 const Contacts: FunctionComponent<ContactsProps> = ({ theme }) => { // Accept theme as a prop
   // Choose icon color based on theme
-  const iconColor = theme === 'light' ? 'text-black' : 'text-white'; // Change 'text-black' to 'text-white' if you want the icons to be white in light theme
+  const iconColor = theme === 'light' ? 'text-black' : 'text-white'; // Change 'text-black' to 'text-white' 
   const bgColor = theme === 'light' ? 'bg-gray-300' : 'bg-gray-800'; // Use lighter background for light theme
 
   // Animation variants for Framer Motion

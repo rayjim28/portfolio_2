@@ -187,7 +187,7 @@ export default function Home() {
       >
         {/* Animated div containing navigation and main content */}
         <motion.div
-          className="flex flex-col items-center justify-center w-11/12 sm:w-full"
+          className="flex flex-col items-center justify-center w-11/12 sm:w-full mt-24"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
@@ -215,7 +215,7 @@ export default function Home() {
           <motion.h1
             onMouseEnter={() => setIsHoveringTitle(true)}
             onMouseLeave={() => setIsHoveringTitle(false)}
-            className={`z-10 mt-24 text-center w-full text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-transparent duration-1000 cursor-default text-edge-outline animate-title font-display whitespace-normal ${
+            className={`z-10 mt-24 text-center w-full text-2xl sm:text-3xl md:text-4xl lg:text-5xl  text-transparent duration-1000 cursor-default text-edge-outline animate-title font-display whitespace-normal ${
               currentTheme === "light" ? "bg-black" : "bg-white"
             } bg-clip-text`}
             whileHover={{ scale: 1.1 }}
@@ -234,7 +234,7 @@ export default function Home() {
           {/* Quote section */}
           <div className="quote-container mt-24">
             <motion.h2
-              className={`text-xl md:text-xl lg:text-3xl text-center mt-24 ${
+              className={`text-xl md:text-xl lg:text-3xl text-center mt-20 ${
                 !currentTheme || currentTheme === "dark"
                   ? "text-white"
                   : "text-black"
