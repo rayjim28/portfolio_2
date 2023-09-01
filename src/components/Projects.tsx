@@ -75,7 +75,7 @@ const Projects = ({ currentTheme }: ProjectsProps) => {
       scale: 1,
       boxShadow: "0px 0px 5px rgba(0,0,0,0.1)",
       backgroundColor: isDark ? "#333" : "#eee",
-      border: "1px solid black"
+      border: isDark ? "1px solid white" : "1px solid black",
     },
     hover: {
       scale: 1.05,
