@@ -1,6 +1,6 @@
 import { motion } from "framer-motion"; // Import motion for animations
 import { useTheme } from "next-themes"; // Import useTheme hook to handle theme
-import { useEffect } from 'react'; // Import useEffect for side-effects
+import { useEffect } from "react"; // Import useEffect for side-effects
 
 // Define the ModalProps interface with onClose and children properties
 interface ModalProps {
@@ -14,9 +14,9 @@ const Modal: React.FC<ModalProps> = ({ onClose, children }) => {
 
     // useEffect to disable scrolling when the modal is open and re-enable it on unmount
     useEffect(() => {
-        document.body.style.overflow = 'hidden';
+        document.body.style.overflow = "hidden";
         return () => {
-            document.body.style.overflow = 'unset';
+            document.body.style.overflow = "unset";
         };
     }, []);
 
@@ -24,7 +24,7 @@ const Modal: React.FC<ModalProps> = ({ onClose, children }) => {
     const modalVariants = {
         hidden: { opacity: 0, scale: 0.7 },
         visible: { opacity: 1, scale: 1 },
-        exit: { opacity: 0, scale: 0.7 }
+        exit: { opacity: 0, scale: 0.7 },
     };
 
     return (
@@ -32,7 +32,8 @@ const Modal: React.FC<ModalProps> = ({ onClose, children }) => {
         <div className="fixed inset-0 z-[1000] overflow-auto bg-black bg-opacity-40 flex items-center justify-center">
             {/* Animated modal container with conditional styling based on the theme */}
             <motion.div
-                className={`relative p-8 w-full max-w-lg rounded-lg shadow-2xl flex flex-col space-y-4 transition-all font-sans text-lg ${isDark ? "bg-gray-800 text-white" : "bg-gray-300 text-black"}`}
+                className={`relative p-8 w-full max-w-lg rounded-lg shadow-2xl flex flex-col space-y-4 transition-all font-sans text-lg ${isDark ? "bg-gray-800 text-white" : "bg-gray-300 text-black"
+                    }`}
                 variants={modalVariants}
                 initial="hidden"
                 animate="visible"
@@ -46,7 +47,9 @@ const Modal: React.FC<ModalProps> = ({ onClose, children }) => {
                 >
                     {/* SVG icon for close button */}
                     <svg
-                        className={isDark ? "fill-current text-white" : "fill-current text-black"}
+                        className={
+                            isDark ? "fill-current text-white" : "fill-current text-black"
+                        }
                         xmlns="http://www.w3.org/2000/svg"
                         width="18"
                         height="18"

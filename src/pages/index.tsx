@@ -181,13 +181,13 @@ export default function Home() {
       </header>
       {/* Main content section */}
       <main
-        className={`flex flex-col justify-center items-center h-4/5 relative z-10 mb-36 ${
+        className={`flex flex-col justify-center items-center h-full relative z-10 mb-36 ${
           currentTheme === "light" ? "text-dark-primary" : "text-light-primary"
         }`}
       >
         {/* Animated div containing navigation and main content */}
         <motion.div
-          className="flex flex-col items-center justify-center w-11/12 sm:w-full h-4/5"
+          className="flex flex-col items-center justify-center w-11/12 sm:w-full"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
@@ -215,17 +215,24 @@ export default function Home() {
           <motion.h1
             onMouseEnter={() => setIsHoveringTitle(true)}
             onMouseLeave={() => setIsHoveringTitle(false)}
-            className={`z-10 mt-24 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-transparent duration-1000 cursor-default text-edge-outline animate-title font-display whitespace-normal ${
+            className={`z-10 mt-24 text-center w-full text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-transparent duration-1000 cursor-default text-edge-outline animate-title font-display whitespace-normal ${
               currentTheme === "light" ? "bg-black" : "bg-white"
             } bg-clip-text`}
             whileHover={{ scale: 1.1 }}
           >
-            Hi, my name is Raymond Jimenez,
-            <br />& I&apos;m a Software Engineer
+            Raymond Jimenez: Software Engineer & Data Enthusiast.
+            <br />
+            Passionate about developing software and diving into data.
+            <br />
+            Skilled in <strong>SQL</strong> and keen to optimize queries to
+            glean insights.
+            <br />
+            On a journey of learning, growth, and adding value through tech.
             {isHoveringTitle && <CustomCursor />}
           </motion.h1>
+
           {/* Quote section */}
-          <div className="quote-container">
+          <div className="quote-container mt-24">
             <motion.h2
               className={`text-xl md:text-xl lg:text-3xl text-center mt-24 ${
                 !currentTheme || currentTheme === "dark"
@@ -248,7 +255,7 @@ export default function Home() {
         animate={{ opacity: isProjectsVisible ? 1 : 0 }}
         transition={{ duration: 0.5 }}
       >
-        <Projects />
+        <Projects currentTheme={currentTheme} />
       </motion.div>
 
       {/* About component section */}
