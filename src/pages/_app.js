@@ -1,21 +1,10 @@
-// pages/_app.js
-import RootLayout from '../components/layout';
+import '../styles/globals.css';
 import { ThemeProvider } from 'next-themes';
-import CustomCursor from '../components/CustomCursor';
 
-function MyApp({ Component, pageProps }) {
+export default function MyApp({ Component, pageProps }) {
   return (
-    <ThemeProvider
-      attribute="class" // Apply theme as class attribute
-      defaultTheme="dark" // Default theme
-      enableSystem={false} // Disable automatic system theme
-      themes={['light', 'dark']} >
-      <CustomCursor />
-      <RootLayout>
-        <Component {...pageProps} />
-      </RootLayout>
+    <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} storageKey="raymond-portfolio-theme">
+      <Component {...pageProps} />
     </ThemeProvider>
   );
 }
-
-export default MyApp;
