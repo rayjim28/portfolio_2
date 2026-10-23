@@ -23,9 +23,10 @@ export const projects: Project[] = [
       'A movie discovery application connecting a React interface to a Node.js and Express API, MongoDB, third-party movie data, and token-based authentication.',
     highlights: ['Third-party movie API', 'Token-based authentication', 'Full-stack architecture'],
     tech: ['React', 'Node.js', 'Express', 'MongoDB'],
-    screenshot: '/screenshot-of-movie-mania.png',
+    screenshot: '/movie-mania-feature-2026.webp',
     liveUrl: 'https://movie-mania-e7tz.onrender.com/',
     featured: true,
+    repoUrl: 'https://github.com/rayjim28/movie-mania',
   },
   {
     id: 'budget-manager',

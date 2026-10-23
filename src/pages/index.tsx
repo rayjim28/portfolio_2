@@ -116,7 +116,7 @@ export default function Home() {
           <div className="container about-grid">
             <div className="about-image-side">
               <div className="portrait-backdrop">
-                <div className="portrait-image"><Image src="/my-image.png" alt="Portrait of Raymond Jimenez" fill sizes="(max-width: 650px) 200px, 260px" style={{ objectFit: 'cover', objectPosition: 'center top' }}/></div>
+                <div className="portrait-image"><Image src="/portrait-2026-updated.png" alt="Portrait of Raymond Jimenez" fill sizes="(max-width: 650px) 200px, 260px" style={{ objectFit: 'cover', objectPosition: 'center top' }}/></div>
                 <div className="portrait-mark">RJ<span>.</span></div>
               </div>
               <div className="portrait-caption"><span className="caption-sparkle">✳</span> Engineering grounded in experience.</div>
