@@ -31,14 +31,19 @@ export const projects: Project[] = [
   {
     id: 'budget-manager',
     number: '02',
-    title: 'Budget Manager',
-    category: 'Backend & data management',
+    title: 'BudgetWise',
+    category: 'Full-stack financial application',
     description:
-      'A Django-powered budgeting app with secure sign-in, PostgreSQL storage, and personalized budget tracking for each user.',
-    highlights: ['User-specific budgets', 'Authentication', 'Database-backed views'],
-    tech: ['Python', 'Django', 'PostgreSQL', 'Bootstrap'],
-    screenshot: '/screenshot-of-budget.png',
+      'Built and modernized a Python and Django budgeting application with PostgreSQL, secure user accounts, income and expense tracking, interactive dashboards, and financial reports.',
+    highlights: [
+      'Django authentication and user-specific records',
+      'Budget, income, and expense management',
+      'Spending analytics, reports, and CSV export',
+    ],
+    tech: ['Python', 'Django', 'PostgreSQL', 'HTML', 'CSS', 'JavaScript', 'Render'],
+    screenshot: '/budgetwise-dashboard.png',
     liveUrl: 'https://budget-manager-qdrj.onrender.com/',
+    repoUrl: 'https://github.com/rayjim28/budget-manager',
   },
   {
     id: 'gradebook',
