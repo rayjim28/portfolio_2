@@ -35,9 +35,9 @@ const experience = [
 
 // Education and training appear in this order.
 const education = [
-  { degree: 'B.S. in Computer Science', institution: 'University of Maryland Global Campus', info: 'Expected 2027', badge: 'IN PROGRESS' },
   { degree: 'Software Engineering Immersive', institution: 'General Assembly', info: '420 hours · 2023', badge: 'COMPLETED' },
   { degree: 'Associate of Arts in General Studies', institution: 'Associate degree', info: 'Completed', badge: 'COMPLETED' },
+  { degree: 'B.S. in Computer Science', institution: 'University of Maryland Global Campus', info: 'Expected 2027', badge: 'IN PROGRESS' },
 ];
 
 export default function Home() {
