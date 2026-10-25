@@ -1,8 +1,5 @@
 import { useEffect, useRef } from 'react';
 
-/** Small, requestAnimationFrame-managed ambient particle canvas behind the hero.
- * Pauses when hidden, respects reduced-motion, and cancels animation on unmount.
- */
 export default function ParticleField() {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);

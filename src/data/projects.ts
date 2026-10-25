@@ -1,4 +1,3 @@
-/** Edit these entries when you add a project, screenshot, or verified repository link. */
 export type Project = {
   id: string;
   number: string;
@@ -13,20 +12,21 @@ export type Project = {
   featured?: boolean;
 };
 
+// Projects appear on the site in this order.
 export const projects: Project[] = [
   {
     id: 'movie-mania',
     number: '01',
     title: 'Movie Mania',
-    category: 'API & database integration',
+    category: 'Full-stack software engineering',
     description:
-      'A movie discovery application connecting a React interface to a Node.js and Express API, MongoDB, third-party movie data, and token-based authentication.',
-    highlights: ['Third-party movie API', 'Token-based authentication', 'Full-stack architecture'],
-    tech: ['React', 'Node.js', 'Express', 'MongoDB'],
-    screenshot: '/movie-mania-feature-2026.webp',
+      'Movie Mania lets people search for films, create an account, and manage a rental list. I built the React frontend, connected it to an Express API and MongoDB, and deployed both services on Render.',
+    highlights: ['Secure signup and login', 'OMDb-powered movie search and details', 'MongoDB rental lists', 'Separate API and frontend deployment'],
+    tech: ['React', 'Vite', 'Node.js', 'Express', 'MongoDB', 'OMDb API', 'Render'],
+    screenshot: '/movie-mania-reference.png',
     liveUrl: 'https://movie-mania-e7tz.onrender.com/',
-    featured: true,
     repoUrl: 'https://github.com/rayjim28/movie-mania',
+    featured: true,
   },
   {
     id: 'budget-manager',

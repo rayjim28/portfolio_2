@@ -1,7 +1,7 @@
 import { FiMail } from 'react-icons/fi';
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
 
-/** Retained from the original portfolio, with more restrained styling and mobile support. */
+// Shared contact links used in the side rail and footer.
 export const socialLinks = [
   { label: 'GitHub', href: 'https://github.com/rayjim28', Icon: FaGithub },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/raymondjimenez/', Icon: FaLinkedinIn },

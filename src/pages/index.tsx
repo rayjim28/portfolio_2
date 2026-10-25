@@ -1,176 +1,109 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import { FiArrowDown, FiArrowRight, FiArrowUpRight, FiCheck, FiCode, FiMail, FiMenu, FiX } from 'react-icons/fi';
 import { useState } from 'react';
-import ParticleField from '../components/ParticleField';
+import { FiArrowRight, FiArrowUpRight, FiCheckCircle, FiExternalLink, FiMail, FiMenu, FiX } from 'react-icons/fi';
 import ProjectCard from '../components/ProjectCard';
 import SocialRail, { socialLinks } from '../components/SocialRail';
 import ThemeToggle from '../components/ThemeToggle';
 import { projects } from '../data/projects';
 
-const skills = {
-  'Programming languages': ['JavaScript', 'Python', 'Java', 'SQL', 'TypeScript'],
-  'Frameworks & libraries': ['React', 'Next.js', 'Node.js', 'Express', 'Django', 'Tailwind CSS'],
-  'Databases & APIs': ['PostgreSQL', 'MongoDB', 'REST APIs'],
-  'Tools & platforms': ['Git', 'GitHub', 'AWS', 'Vercel'],
-};
+// These links match the sections on the page.
+const navigation = [
+  { label: 'Home', href: '#home' },
+  { label: 'About', href: '#about' },
+  { label: 'Projects', href: '#projects' },
+  { label: 'Skills', href: '#skills' },
+  { label: 'Experience', href: '#experience' },
+  { label: 'Education', href: '#education' },
+  { label: 'Contact', href: '#contact' },
+];
 
+// Keep the skill groups together so they are easy to update.
+const skills = [
+  { label: 'Programming languages', items: ['JavaScript', 'TypeScript', 'Python', 'Java', 'SQL'] },
+  { label: 'Frameworks & development', items: ['React', 'Next.js', 'Node.js', 'Express', 'Django', 'Vite', 'HTML & CSS'] },
+  { label: 'Databases & services', items: ['MongoDB', 'PostgreSQL', 'REST APIs', 'Authentication', 'API Integration'] },
+  { label: 'Tools & deployment', items: ['Git', 'GitHub', 'VS Code', 'AWS', 'Vercel', 'Render'] },
+];
+
+// Work history appears from most recent to oldest.
 const experience = [
-  {
-    role: 'Store Worker',
-    company: 'DeCA Commissary',
-    period: '2021–2023',
-    detail: 'Supported inventory and day-to-day operations while resolving customer, stock, and workflow issues in a fast-paced environment.',
-  },
-  {
-    role: 'Team Lead',
-    company: 'OSL Retail Services',
-    period: '2020–2021',
-    detail: 'Led and trained a six-person telecommunications team, explained technical products to customers, and supported operations and team performance.',
-  },
-  {
-    role: 'Sales Lead',
-    company: 'b8ta',
-    period: '2018–2019',
-    detail: 'Helped customers evaluate consumer technology, recommended products based on their needs, and resolved service questions.',
-  },
+  { title: 'Store Worker', place: 'DeCA Commissary', years: '2021–2023', detail: 'Managed inventory and operational workflows, resolved customer issues, and supported reliable day-to-day service in a high-volume environment.' },
+  { title: 'Team Lead', place: 'OSL Retail Services', years: '2020–2021', detail: 'Led and trained a six-person telecommunications team, supported technical product education, and coordinated team performance and customer support.' },
+  { title: 'Sales Lead', place: 'b8ta', years: '2018–2019', detail: 'Helped customers understand emerging consumer technologies and resolved product questions through clear, practical communication.' },
+];
+
+// Education and training appear in this order.
+const education = [
+  { degree: 'B.S. in Computer Science', institution: 'University of Maryland Global Campus', info: 'Expected 2027', badge: 'IN PROGRESS' },
+  { degree: 'Software Engineering Immersive', institution: 'General Assembly', info: '420 hours · 2023', badge: 'COMPLETED' },
+  { degree: 'Associate of Arts in General Studies', institution: 'Associate degree', info: 'Completed', badge: 'COMPLETED' },
 ];
 
 export default function Home() {
+  // The menu is collapsed on smaller screens.
   const [menuOpen, setMenuOpen] = useState(false);
   return (
     <div className="site-shell">
       <Head>
-        <title>Raymond Jimenez — Software Engineer</title>
-        <meta name="description" content="Explore software engineering projects by Raymond Jimenez, with experience in application development, databases, APIs, and telecommunications leadership." />
+        <title>Raymond Jimenez | Software Engineer</title>
+        <meta name="description" content="Raymond Jimenez's software engineering portfolio. Full-stack applications, APIs, databases, technical projects and professional experience." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#f8f9fd" />
+        <meta name="theme-color" content="#071321" />
       </Head>
 
       <header className="site-header">
-        <div className="header-inner container">
-          <a className="wordmark" href="#home" aria-label="Raymond Jimenez, back to top">
-            <span className="mark">rj<span>.</span></span>
-            <span className="brand-copy">Raymond Jimenez<small>SOFTWARE ENGINEER</small></span>
-          </a>
-          <nav aria-label="Primary navigation" className={`main-nav ${menuOpen ? 'main-nav-open' : ''}`}>
-            {[
-              { text: 'Home', href: '#home' },
-              { text: 'Projects', href: '#projects' },
-              { text: 'About', href: '#about' },
-              { text: 'Experience', href: '#experience' },
-              { text: 'Skills', href: '#skills' },
-            ].map(link => <a key={link.href} href={link.href} onClick={() => setMenuOpen(false)}>{link.text}</a>)}
-            <a className="nav-contact" href="#contact" onClick={() => setMenuOpen(false)}>Let’s talk <FiArrowUpRight size={15} /></a>
+        <div className="container nav-inner">
+          <a href="#home" className="brand brand-monogram" aria-label="Back to home">RJ<span>.</span></a>
+          <nav className={`primary-nav ${menuOpen ? 'is-open' : ''}`} aria-label="Primary">
+            {navigation.map(link => <a key={link.href} href={link.href} onClick={() => setMenuOpen(false)}>{link.label}</a>)}
           </nav>
-          <div className="header-actions"><ThemeToggle /><button type="button" className="mobile-menu-toggle" aria-expanded={menuOpen} aria-label={menuOpen ? 'Close menu' : 'Open menu'} onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <FiX size={22} /> : <FiMenu size={22} />}</button></div>
+          <div className="nav-actions"><ThemeToggle /><button type="button" className="nav-menu-btn" aria-label={menuOpen ? 'Close menu' : 'Open menu'} aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <FiX size={21}/> : <FiMenu size={21}/>}</button></div>
         </div>
       </header>
 
       <SocialRail />
       <main>
-        <section className="hero" id="home" aria-labelledby="hero-title">
-          <ParticleField />
-          <div className="hero-glow" aria-hidden="true" />
+        <section id="home" className="hero" aria-labelledby="hero-title">
+          <div className="hero-ambient" aria-hidden="true" />
+          <div className="hero-photo">
+            <Image src="/raymond-portrait-clean.png" alt="Raymond Jimenez wearing a black shirt in an office setting" fill priority unoptimized sizes="(max-width: 700px) 100vw, 55vw" className="hero-photo-image" />
+          </div>
+          <div className="hero-shade" aria-hidden="true" />
           <div className="container hero-inner">
             <div className="hero-copy">
-              <div className="eyebrow"><span className="eyebrow-dot" /> RAYMOND JIMENEZ · SOFTWARE ENGINEER <span className="eyebrow-line" /></div>
-              <h1 id="hero-title">Engineering for<br /><span className="accent-underline">real-world needs.</span></h1>
-              <p className="hero-lead">I develop applications and work with APIs and databases, bringing a background in telecommunications, leadership, and practical problem-solving to software engineering.</p>
-              <div className="hero-buttons"><a className="button button-primary" href="#projects">Explore my work <FiArrowUpRight size={18}/></a><a className="button button-secondary" href="#about">More about me <FiArrowRight size={18}/></a></div>
-              <div className="hero-footnote"><span className="footnote-line" /> Software engineering <span className="small-dot">·</span> Telecommunications experience</div>
-            </div>
-            <div className="hero-art" aria-label="Decorative developer workspace">
-              <div className="hero-orbit hero-orbit-one"/><div className="hero-orbit hero-orbit-two"/>
-              <div className="floating-label floating-label-top"><span className="mini-star">✳</span> Built with purpose</div>
-              <div className="code-window">
-                <div className="window-bar"><div className="traffic-lights"><i/><i/><i/></div><span>systems.ts</span><FiCode size={17}/></div>
-                <div className="code-lines">
-                  <p><span className="code-muted">01</span> <span className="code-purple">const</span> engineer = {'{'}</p>
-                  <p><span className="code-muted">02</span> &nbsp; name: <span className="code-green">&apos;Raymond&apos;</span>,</p>
-                  <p><span className="code-muted">03</span> &nbsp; role: <span className="code-green">&apos;Software Engineer&apos;</span>,</p>
-                  <p><span className="code-muted">04</span> &nbsp; focus: [</p>
-                  <p><span className="code-muted">05</span> &nbsp; &nbsp; <span className="code-green">&apos;Applications&apos;</span>, <span className="code-green">&apos;APIs&apos;</span>,</p>
-                  <p><span className="code-muted">06</span> &nbsp; &nbsp; <span className="code-green">&apos;Data&apos;</span>, <span className="code-green">&apos;Systems&apos;</span></p>
-                  <p><span className="code-muted">07</span> &nbsp; ],</p>
-                  <p><span className="code-muted">08</span> &nbsp; approach: <span className="code-green">&apos;Solve + improve&apos;</span></p>
-                  <p><span className="code-muted">09</span> {'}'};</p>
-                </div>
-                <div className="code-status"><span><span className="status-dot"/> All systems ready</span><span>TSX / NEXT.JS</span></div>
-              </div>
-              <div className="floating-label floating-label-bottom"><span className="floating-check"><FiCheck size={14} /></span><div>Engineering mindset<small>From challenge to solution</small></div></div>
+              <p className="hero-intro">HELLO, I&apos;M</p>
+              <h1 id="hero-title">Raymond <span>Jimenez</span></h1>
+              <p className="hero-role">Software Engineer <span className="role-separator">|</span> Computer Science Student</p>
+              <p className="hero-description">I build full-stack applications and work with APIs, databases, and software systems. My background in telecommunications and team leadership helps me approach technical problems with a practical point of view.</p>
             </div>
           </div>
-          <div className="container hero-bottom"><a href="#projects" className="scroll-prompt">SCROLL TO EXPLORE <FiArrowDown size={16}/></a><span>01 / 05 — PORTFOLIO</span></div>
         </section>
 
-        <section className="projects-section section-pad" id="projects" aria-labelledby="projects-heading">
+        <section id="projects" className="section projects-section" aria-labelledby="projects-heading">
           <div className="container">
-            <div className="section-heading projects-heading"><div><span className="section-kicker"><span className="section-index">01.</span> SELECTED WORK</span><h2 id="projects-heading">Selected <em>projects.</em></h2></div><p>Selected applications that demonstrate backend logic, authentication, API integration, data management, and practical engineering decisions.</p></div>
-            <div className="projects-grid">{projects.map(project => <ProjectCard key={project.id} project={project} />)}</div>
-            <div className="more-work"><span>Additional technical work and experiments</span><a href="https://github.com/rayjim28" target="_blank" rel="noopener noreferrer">More on GitHub <FiArrowUpRight size={16}/></a></div>
+            <div className="section-top"><div><p className="section-eyebrow"><span className="blue-rule"/> FEATURED PROJECTS</p><h2 id="projects-heading">My <span>work.</span></h2></div><a className="text-action" href="https://github.com/rayjim28" target="_blank" rel="noopener noreferrer">More on GitHub <FiArrowUpRight/></a></div>
+            <p className="section-intro">A selection of my software projects, including full-stack applications, authentication, and database work.</p>
+            <div className="projects-grid">{projects.map(project => <ProjectCard project={project} key={project.id} />)}</div>
           </div>
         </section>
 
-        <section className="about-section section-pad" id="about" aria-labelledby="about-heading">
-          <div className="container about-grid">
-            <div className="about-image-side">
-              <div className="portrait-backdrop">
-                <div className="portrait-image"><Image src="/portrait-2026-updated.png" alt="Portrait of Raymond Jimenez" fill sizes="(max-width: 650px) 200px, 260px" style={{ objectFit: 'cover', objectPosition: 'center top' }}/></div>
-                <div className="portrait-mark">RJ<span>.</span></div>
-              </div>
-              <div className="portrait-caption"><span className="caption-sparkle">✳</span> Engineering grounded in experience.</div>
-            </div>
-            <div className="about-copy">
-              <span className="section-kicker"><span className="section-index">02.</span> ABOUT ME</span>
-              <h2 id="about-heading">A practical approach<br/>to <em>software engineering.</em></h2>
-              <p>I&apos;m Raymond, a Computer Science student with hands-on experience developing applications using JavaScript, Python, and SQL, alongside Java programming through university coursework. My projects include authentication, API integrations, database-backed features, and responsive interfaces.</p>
-              <p>Before focusing on software engineering, I worked in telecommunications and technology-focused customer service and leadership roles. Those experiences shaped how I communicate, investigate problems, and consider the people who rely on technology.</p>
-              <div className="education-stack" aria-label="Education and training">
-                <div><span className="edu-marker"/><div><strong>B.S. in Computer Science</strong><small>University of Maryland Global Campus · Expected 2027</small></div></div>
-                <div><span className="edu-marker"/><div><strong>Software Engineering Immersive</strong><small>General Assembly · 420-hour program · 2023</small></div></div>
-                <div><span className="edu-marker"/><div><strong>Associate of Arts, General Studies</strong><small>Completed</small></div></div>
-              </div>
-            </div>
+        <section id="about" className="section about-section" aria-labelledby="about-heading">
+          <div className="container about-layout">
+            <div className="about-heading-group"><p className="section-eyebrow"><span className="blue-rule"/> ABOUT ME</p><h2 id="about-heading">Engineering with<br/><span>purpose.</span></h2><div className="about-accent">TECHNICAL THINKING. PRACTICAL EXPERIENCE.</div></div>
+            <div className="about-text"><p>I&apos;m a software engineer and Computer Science student focused on building dependable applications and understanding the systems behind them—not just the screens people see. My project work includes full-stack development, user authentication, REST APIs, and database-driven features.</p><p>Before moving further into engineering, I worked in telecommunications, technology retail, and team leadership. That experience taught me how to investigate problems, communicate clearly, and build with users&apos; needs in mind.</p><p>I&apos;m continuing to expand my knowledge in Java, Python, JavaScript, software design, and data systems while pursuing my B.S. in Computer Science.</p><a href="#education" className="about-link">Education &amp; training <FiArrowRight/></a></div>
           </div>
         </section>
 
-        <section className="experience-section section-pad" id="experience" aria-labelledby="experience-heading">
-          <div className="container">
-            <div className="section-heading experience-heading">
-              <div><span className="section-kicker"><span className="section-index">03.</span> PROFESSIONAL BACKGROUND</span><h2 id="experience-heading">Experience beyond<br/><em>the code.</em></h2></div>
-              <p>Years in telecommunications, customer-facing technology, and operations give me a practical perspective on collaboration, communication, and solving problems.</p>
-            </div>
-            <div className="experience-grid">
-              {experience.map(item => (
-                <article className="experience-card" key={item.company}>
-                  <div className="experience-meta"><span>{item.period}</span><span className="experience-meta-dot" /></div>
-                  <h3>{item.role}</h3>
-                  <strong>{item.company}</strong>
-                  <p>{item.detail}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
+        <section id="skills" className="section skills-section" aria-labelledby="skills-heading"><div className="container"><div className="section-top"><div><p className="section-eyebrow"><span className="blue-rule"/> TECHNICAL CAPABILITIES</p><h2 id="skills-heading">Tools &amp; <span>technologies.</span></h2></div></div><p className="section-intro">Languages and tools I use in projects and coursework.</p><div className="skills-grid">{skills.map((group, index) => <article className="skill-card" key={group.label}><div className="skill-card-head"><span>0{index+1}</span><h3>{group.label}</h3></div><div className="skill-pills">{group.items.map(item => <span key={item}>{item}</span>)}</div></article>)}</div></div></section>
 
-        <section className="skills-section section-pad" id="skills" aria-labelledby="skills-heading">
-          <div className="container">
-            <div className="section-heading skills-heading">
-              <div><span className="section-kicker"><span className="section-index">04.</span> TECHNICAL SKILLS</span><h2 id="skills-heading">Tools &amp; <em>technologies.</em></h2></div>
-              <p>Languages, frameworks, databases, and development tools used across my coursework, technical training, and projects.</p>
-            </div>
-            <div className="skills-grid">
-              {Object.entries(skills).map(([group, items], i) => (
-                <div key={group} className="skill-group"><div className="skill-head"><span>0{i + 1}</span><h3>{group}</h3></div><div className="skill-list">{items.map(skill => <span key={skill}>{skill}</span>)}</div></div>
-              ))}
-            </div>
-          </div>
-        </section>
+        <section id="experience" className="section experience-section" aria-labelledby="experience-heading"><div className="container"><div className="section-top"><div><p className="section-eyebrow"><span className="blue-rule"/> PROFESSIONAL BACKGROUND</p><h2 id="experience-heading">Experience beyond <span>the code.</span></h2></div></div><p className="section-intro">My experience in telecommunications, technical sales, and operations taught me how to work with people and solve problems.</p><div className="experience-grid">{experience.map(item => <article className="experience-card" key={item.place}><div className="experience-year">{item.years}<span className="meta-dot"/></div><h3>{item.title}</h3><strong>{item.place}</strong><p>{item.detail}</p></article>)}</div></div></section>
 
-        <section className="contact-section section-pad" id="contact" aria-labelledby="contact-heading"><div className="container"><div className="contact-panel"><div className="contact-orb" aria-hidden="true"/><span className="contact-kicker">05. / LET&apos;S CONNECT</span><h2 id="contact-heading">Looking to collaborate?<br/><em>Let&apos;s connect.</em></h2><p>I&apos;m interested in software engineering opportunities, thoughtful technical collaborations, and conversations about building useful, dependable technology.</p><a className="button contact-button" href="mailto:rjim1612@gmail.com">Say hello <FiMail size={19}/></a><div className="contact-decoration" aria-hidden="true">✳</div></div></div></section>
+        <section id="education" className="section education-section" aria-labelledby="education-heading"><div className="container"><div className="section-top"><div><p className="section-eyebrow"><span className="blue-rule"/> EDUCATION &amp; TRAINING</p><h2 id="education-heading">Continued <span>growth.</span></h2></div></div><div className="education-list">{education.map(item => <div className="education-item" key={item.degree}><div className="edu-icon"><FiCheckCircle/></div><div className="edu-main"><h3>{item.degree}</h3><p>{item.institution}</p></div><div className="edu-right"><span>{item.badge}</span><small>{item.info}</small></div></div>)}</div></div></section>
+
+        <section id="contact" className="section contact-section" aria-labelledby="contact-heading"><div className="container"><div className="contact-box"><p className="section-eyebrow"><span className="blue-rule"/> LET&apos;S CONNECT</p><h2 id="contact-heading">Let&apos;s build something <span>useful.</span></h2><p>I&apos;m interested in software engineering opportunities, technical collaborations, and solving meaningful problems with technology.</p><div className="contact-actions"><a className="btn btn-primary" href="mailto:rjim1612@gmail.com">Contact me <FiMail/></a><a className="btn btn-outline" href="https://github.com/rayjim28" target="_blank" rel="noopener noreferrer">View GitHub <FiExternalLink/></a></div></div></div></section>
       </main>
-      <footer className="site-footer"><div className="container footer-inner"><div><strong>Raymond Jimenez<span>.</span></strong><small>Designed &amp; built with care.</small></div><div className="footer-socials">{socialLinks.map(({ label, href, Icon }) => <a key={label} href={href} aria-label={label} target={href.startsWith('mailto:') ? undefined : '_blank'} rel={href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}><Icon size={17}/></a>)}</div><p>© {new Date().getFullYear()} Raymond Jimenez</p></div></footer>
+      <footer className="site-footer"><div className="container footer-inner"><div><strong>Raymond <span>Jimenez</span></strong><small>Software Engineer · Built with Next.js</small></div><div className="footer-links">{socialLinks.map(({ label, href, Icon }) => <a href={href} aria-label={label} key={label} target={href.startsWith('mailto:') ? undefined : '_blank'} rel={href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}><Icon size={18}/></a>)}</div><p>© {new Date().getFullYear()} Raymond Jimenez</p></div></footer>
     </div>
   );
 }
