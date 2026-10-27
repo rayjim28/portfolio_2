@@ -46,15 +46,20 @@ export const projects: Project[] = [
     repoUrl: 'https://github.com/rayjim28/budget-manager',
   },
   {
-    id: 'gradebook',
+    id: 'signalproof',
     number: '03',
-    title: 'Student Gradebook',
-    category: 'Web application',
+    title: 'SignalProof',
+    category: 'Network monitoring and diagnostics',
     description:
-      'A student gradebook project focused on organizing grade information and providing a straightforward interface for reviewing and managing records.',
-    highlights: ['Organized student records', 'Data-oriented interface'],
-    tech: ['Web development', 'UI'],
-    screenshot: '/screenshot-of-gradebook.png',
-    liveUrl: 'https://student-gradebook.onrender.com/',
+      'Built a Python network-monitoring application that records connectivity issues, tracks latency and incident history, and generates evidence reports. The public demo uses sample data; the local agent performs real measurements.',
+    highlights: [
+      'Connection monitoring and incident history',
+      'Manual speed, ping, jitter, and packet-loss checks',
+      'Exportable diagnostic reports and interactive demo',
+    ],
+    tech: ['Python', 'SQLite', 'JavaScript', 'HTML', 'CSS'],
+    screenshot: '/signalproof-dashboard.png',
+    liveUrl: 'https://rayjim28.github.io/signalproof/',
+    repoUrl: 'https://github.com/rayjim28/signalproof',
   },
 ];
