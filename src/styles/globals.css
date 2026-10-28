@@ -293,3 +293,58 @@ h1,h2,h3 { font-family: 'Manrope', system-ui, sans-serif; }
   .hero-shade{background:linear-gradient(0deg,#06111d 0%,#06111d 16%,rgba(6,17,29,.94) 39%,rgba(6,17,29,.08) 82%);}
 }
 
+/* PORTRAIT EDGE BLEND + CURRENT THEME ICON (v2) */
+/* Keep the header transparent and the portrait below the navigation. */
+.site-header {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+/* Fade the photographic rectangle into the dark hero, especially on the left. */
+.hero-photo {
+  -webkit-mask-image: linear-gradient(to right,
+    transparent 0%,
+    rgba(0,0,0,.16) 10%,
+    rgba(0,0,0,.72) 29%,
+    #000 51%);
+  mask-image: linear-gradient(to right,
+    transparent 0%,
+    rgba(0,0,0,.16) 10%,
+    rgba(0,0,0,.72) 29%,
+    #000 51%);
+}
+/* Soften the horizontal edge under the floating navigation without
+   blurring the face or replacing the original portrait. */
+.hero-photo::after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(to bottom,
+    rgba(6,17,29,.96) 0%,
+    rgba(6,17,29,.35) 7%,
+    transparent 16%);
+}
+/* A smoother transition across the left-hand text and into the photo. */
+.hero-shade {
+  background: linear-gradient(90deg,
+    #06111d 0%,
+    #06111d 22%,
+    rgba(6,17,29,.96) 32%,
+    rgba(6,17,29,.67) 42%,
+    rgba(6,17,29,.21) 53%,
+    transparent 70%);
+}
+/* Keep the existing vertical fade on narrow screens: the mobile portrait
+   uses a full-width crop rather than a side-by-side composition. */
+@media (max-width: 700px) {
+  .hero-photo { -webkit-mask-image: none; mask-image: none; }
+  .hero-photo::after { background: none; }
+  .hero-shade {
+    background: linear-gradient(0deg,
+      #06111d 0%, #06111d 16%,
+      rgba(6,17,29,.94) 39%, rgba(6,17,29,.08) 82%);
+  }
+}
+/* END PORTRAIT EDGE BLEND (v2) */

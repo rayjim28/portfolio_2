@@ -12,10 +12,10 @@ export default function ThemeToggle() {
       type="button"
       className="theme-toggle"
       aria-label={dark ? 'Switch to light mode' : 'Switch to dark mode'}
-      title={dark ? 'Light mode' : 'Dark mode'}
+      title={dark ? 'Dark mode — switch to light' : 'Light mode — switch to dark'}
       onClick={() => setTheme(dark ? 'light' : 'dark')}
     >
-      {dark ? <FiSun size={18} aria-hidden="true" /> : <FiMoon size={18} aria-hidden="true" />}
+      {dark ? <FiMoon size={18} aria-hidden="true" /> : <FiSun size={18} aria-hidden="true" />}
     </button>
   );
 }
