@@ -45,7 +45,18 @@ export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   return (
     <div className="site-shell">
+      <a className="skip-to-main" href="#main-content">Skip to main content</a>
       <Head>
+        {/* PORTFOLIO FINAL SEO START */}
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Raymond Jimenez | Software Engineer" />
+        <meta property="og:description" content="Software engineering projects by Raymond Jimenez: full-stack apps, APIs, databases and network diagnostics." />
+        <meta property="og:locale" content="en_US" />
+        <meta name="twitter:title" content="Raymond Jimenez | Software Engineer" />
+        <meta name="twitter:description" content="Software engineering projects by Raymond Jimenez: full-stack apps, APIs, databases and network diagnostics." />
+        <meta name="twitter:card" content="summary" />
+        {/* PORTFOLIO FINAL SEO END */}
+
         <title>Raymond Jimenez | Software Engineer</title>
         <meta name="description" content="Raymond Jimenez's software engineering portfolio. Full-stack applications, APIs, databases, technical projects and professional experience." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -63,7 +74,7 @@ export default function Home() {
       </header>
 
       <SocialRail />
-      <main>
+      <main id="main-content">
         <section id="home" className="hero" aria-labelledby="hero-title">
           <div className="hero-ambient" aria-hidden="true" />
           <div className="hero-photo">

@@ -463,3 +463,26 @@ h1,h2,h3 { font-family: 'Manrope', system-ui, sans-serif; }
   .edu-right { margin-left: 53px; }
 }
 /* MOBILE PORTFOLIO POLISH v1 — END */
+
+/* PORTFOLIO ACCESSIBILITY POLISH START */
+.skip-to-main {
+  position: fixed;
+  z-index: 10000;
+  top: -200px;
+  left: 16px;
+  padding: 12px 18px;
+  border: 2px solid var(--blue);
+  border-radius: 8px;
+  background: var(--panel);
+  color: var(--text);
+  font-weight: 700;
+}
+.skip-to-main:focus-visible {
+  top: 12px;
+  outline: 3px solid var(--blue);
+  outline-offset: 2px;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+}
+/* PORTFOLIO ACCESSIBILITY POLISH END */
