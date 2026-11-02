@@ -76,6 +76,16 @@ export default function Home() {
               <h1 id="hero-title">Raymond <span>Jimenez</span></h1>
               <p className="hero-role">Software Engineer <span className="role-separator">|</span> Computer Science Student</p>
               <p className="hero-description">I build full-stack applications and work with APIs, databases, and software systems. My background in telecommunications and team leadership helps me approach technical problems with a practical point of view.</p>
+              <div className="hero-actions" style={{ marginTop: '20px' }}>
+                <a
+                  className="btn btn-outline"
+                  href="/Raymond_Jimenez_Software_Engineer_Resume.pdf"
+                  download="Raymond_Jimenez_Software_Engineer_Resume.pdf"
+                  aria-label="Download Raymond Jimenez Software Engineer resume as PDF"
+                >
+                  Download Resume
+                </a>
+              </div>
             </div>
           </div>
         </section>
