@@ -43,7 +43,7 @@ export const projects: Project[] = [
       'Movie Mania lets people search for films, create an account, and manage a rental list. I built the React frontend, connected it to an Express API and MongoDB, and deployed both services on Render.',
     highlights: ['Secure signup and login', 'OMDb-powered movie search and details', 'MongoDB rental lists', 'Separate API and frontend deployment'],
     tech: ['React', 'Vite', 'Node.js', 'Express', 'MongoDB', 'OMDb API', 'Render'],
-    screenshot: '/movie-mania-reference.png',
+    screenshot: '/movie-mania-live.jpg',
     liveUrl: 'https://movie-mania-e7tz.onrender.com/',
     repoUrl: 'https://github.com/rayjim28/movie-mania',
   },
