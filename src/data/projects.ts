@@ -9,14 +9,34 @@ export type Project = {
   screenshot: string;
   liveUrl?: string;
   repoUrl?: string;
+  downloadUrl?: string;
   featured?: boolean;
 };
 
-// Projects appear on the site in this order.
+// Display order matches the order here. Only SignalProof uses the full-width card.
 export const projects: Project[] = [
   {
-    id: 'movie-mania',
+    id: 'signalproof',
     number: '01',
+    title: 'SignalProof',
+    category: 'Network monitoring and diagnostics',
+    description:
+      'Built a Python network-monitoring application that records connectivity issues, tracks latency and incident history, and generates evidence reports. The interactive browser demo uses sample readings; the macOS application performs real measurements.',
+    highlights: [
+      'Connection monitoring, latency analysis, and incident history',
+      'Manual performance tests and downloadable evidence reports',
+      'Packaged macOS application with a public beta release',
+    ],
+    tech: ['Python', 'SQLite', 'JavaScript', 'HTML', 'CSS', 'PyInstaller'],
+    screenshot: '/signalproof-dashboard.png',
+    liveUrl: 'https://rayjim28.github.io/signalproof/',
+    repoUrl: 'https://github.com/rayjim28/signalproof',
+    downloadUrl: 'https://github.com/rayjim28/signalproof/releases/tag/v0.1.0-beta.2',
+    featured: true,
+  },
+  {
+    id: 'movie-mania',
+    number: '02',
     title: 'Movie Mania',
     category: 'Full-stack software engineering',
     description:
@@ -26,11 +46,10 @@ export const projects: Project[] = [
     screenshot: '/movie-mania-reference.png',
     liveUrl: 'https://movie-mania-e7tz.onrender.com/',
     repoUrl: 'https://github.com/rayjim28/movie-mania',
-    featured: true,
   },
   {
     id: 'budget-manager',
-    number: '02',
+    number: '03',
     title: 'BudgetWise',
     category: 'Full-stack financial application',
     description:
@@ -44,22 +63,5 @@ export const projects: Project[] = [
     screenshot: '/budgetwise-dashboard.png',
     liveUrl: 'https://budget-manager-qdrj.onrender.com/',
     repoUrl: 'https://github.com/rayjim28/budget-manager',
-  },
-  {
-    id: 'signalproof',
-    number: '03',
-    title: 'SignalProof',
-    category: 'Network monitoring and diagnostics',
-    description:
-      'Built a Python network-monitoring application that records connectivity issues, tracks latency and incident history, and generates evidence reports. The public demo uses sample data; the local agent performs real measurements.',
-    highlights: [
-      'Connection monitoring and incident history',
-      'Manual speed, ping, jitter, and packet-loss checks',
-      'Exportable diagnostic reports and interactive demo',
-    ],
-    tech: ['Python', 'SQLite', 'JavaScript', 'HTML', 'CSS'],
-    screenshot: '/signalproof-dashboard.png',
-    liveUrl: 'https://rayjim28.github.io/signalproof/',
-    repoUrl: 'https://github.com/rayjim28/signalproof',
   },
 ];
