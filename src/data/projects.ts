@@ -35,8 +35,24 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    id: 'movie-mania',
+    id: 'odj-group',
     number: '02',
+    title: 'ODJ Group LLC',
+    category: 'Client e-commerce storefront',
+    description:
+      'Developed a responsive e-commerce storefront for ODJ Group LLC with product discovery, search, a shopping bag, and admin workflows for managing products and pricing. The public website is available for browsing while online ordering is being prepared.',
+    highlights: [
+      'Real client project with a deployed public storefront',
+      'Product management for images, prices, and visibility',
+      'Catalog search and cart workflows; online ordering coming soon',
+    ],
+    tech: ['Python', 'FastAPI', 'Jinja', 'JavaScript', 'SQLite', 'Render'],
+    screenshot: '/odj-group-brand.webp',
+    liveUrl: 'https://odjgroupllc.com/',
+  },
+  {
+    id: 'movie-mania',
+    number: '03',
     title: 'Movie Mania',
     category: 'Full-stack software engineering',
     description:
@@ -49,7 +65,7 @@ export const projects: Project[] = [
   },
   {
     id: 'budget-manager',
-    number: '03',
+    number: '04',
     title: 'BudgetWise',
     category: 'Full-stack financial application',
     description:
