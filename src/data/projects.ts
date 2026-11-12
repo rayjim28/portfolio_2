@@ -21,11 +21,11 @@ export const projects: Project[] = [
     title: 'ODJ Group LLC',
     category: 'Client e-commerce storefront',
     description:
-      'Developed a responsive e-commerce storefront for ODJ Group LLC with product discovery, search, a shopping bag, and admin workflows for managing products and pricing. The public website is available for browsing while online ordering is being prepared.',
+      'Developed a responsive e-commerce storefront for ODJ Group LLC with product discovery, search, a shopping bag, and admin workflows for managing products and pricing. Public checkout is open.',
     highlights: [
       'Real client project with a deployed public storefront',
       'Product management for images, prices, and visibility',
-      'Catalog search and cart workflows; online ordering coming soon',
+      'Catalog search, cart workflows, and live public checkout',
     ],
     tech: ['Python', 'FastAPI', 'Jinja', 'JavaScript', 'SQLite', 'Render'],
     screenshot: '/odj-group-storefront.png',
