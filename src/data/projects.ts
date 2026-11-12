@@ -13,11 +13,28 @@ export type Project = {
   featured?: boolean;
 };
 
-// Display order matches the order here. Only SignalProof uses the full-width card.
+// Display order matches the order here. Only ODJ Group uses the full-width card.
 export const projects: Project[] = [
   {
-    id: 'signalproof',
+    id: 'odj-group',
     number: '01',
+    title: 'ODJ Group LLC',
+    category: 'Client e-commerce storefront',
+    description:
+      'Developed a responsive e-commerce storefront for ODJ Group LLC with product discovery, search, a shopping bag, and admin workflows for managing products and pricing. The public website is available for browsing while online ordering is being prepared.',
+    highlights: [
+      'Real client project with a deployed public storefront',
+      'Product management for images, prices, and visibility',
+      'Catalog search and cart workflows; online ordering coming soon',
+    ],
+    tech: ['Python', 'FastAPI', 'Jinja', 'JavaScript', 'SQLite', 'Render'],
+    screenshot: '/odj-group-storefront.png',
+    liveUrl: 'https://odjgroupllc.com/',
+    featured: true,
+  },
+  {
+    id: 'signalproof',
+    number: '02',
     title: 'SignalProof',
     category: 'Network monitoring and diagnostics',
     description:
@@ -32,23 +49,6 @@ export const projects: Project[] = [
     liveUrl: 'https://rayjim28.github.io/signalproof/',
     repoUrl: 'https://github.com/rayjim28/signalproof',
     downloadUrl: 'https://github.com/rayjim28/signalproof/releases/tag/v0.1.0-beta.2',
-    featured: true,
-  },
-  {
-    id: 'odj-group',
-    number: '02',
-    title: 'ODJ Group LLC',
-    category: 'Client e-commerce storefront',
-    description:
-      'Developed a responsive e-commerce storefront for ODJ Group LLC with product discovery, search, a shopping bag, and admin workflows for managing products and pricing. The public website is available for browsing while online ordering is being prepared.',
-    highlights: [
-      'Real client project with a deployed public storefront',
-      'Product management for images, prices, and visibility',
-      'Catalog search and cart workflows; online ordering coming soon',
-    ],
-    tech: ['Python', 'FastAPI', 'Jinja', 'JavaScript', 'SQLite', 'Render'],
-    screenshot: '/odj-group-brand.webp',
-    liveUrl: 'https://odjgroupllc.com/',
   },
   {
     id: 'movie-mania',
