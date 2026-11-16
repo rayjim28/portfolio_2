@@ -13,23 +13,23 @@ export type Project = {
   featured?: boolean;
 };
 
-// Display order matches the order here. Only ODJ Group uses the full-width card.
+// Display order matches the order here. Only TrueMerit uses the full-width card.
 export const projects: Project[] = [
   {
-    id: 'odj-group',
+    id: 'truemerit',
     number: '01',
-    title: 'ODJ Group LLC',
+    title: 'TrueMerit Cleaning Supplies',
     category: 'Client e-commerce storefront',
     description:
-      'Developed a responsive e-commerce storefront for ODJ Group LLC with product discovery, search, a shopping bag, and admin workflows for managing products and pricing. Public checkout is open.',
+      'Developed a responsive retail and wholesale cleaning-supplies storefront for TrueMerit Cleaning Supplies, with product browsing, search, customer accounts, a shopping cart, and public checkout. Built admin workflows for managing products, pricing, stock, and orders.',
     highlights: [
-      'Real client project with a deployed public storefront',
-      'Product management for images, prices, and visibility',
-      'Catalog search, cart workflows, and live public checkout',
+      'Client storefront for retail and wholesale cleaning supplies',
+      'Customer accounts, catalog search, cart, and public checkout',
+      'Admin management for products, pricing, inventory, and orders',
     ],
-    tech: ['Python', 'FastAPI', 'Jinja', 'JavaScript', 'SQLite', 'Render'],
-    screenshot: '/odj-group-storefront.png',
-    liveUrl: 'https://odjgroupllc.com/',
+    tech: ['Python', 'FastAPI', 'Jinja', 'JavaScript', 'PostgreSQL', 'Stripe', 'Render'],
+    screenshot: '/truemerit-storefront.png',
+    liveUrl: 'https://www.truemeritsupply.com/',
     featured: true,
   },
   {
